@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rockpaperscissors</title>
+</head>
+<body>
+    <script>
+        let rps = ["rock", "paper", "scissors"];
+
+        function compPlay(){
+            let rndm = Math.floor(Math.random() * rps.length);
+            return(rps[rndm]);
+        }
+
+        function round(){
+            let sign = prompt("Choose your sign")
+            console.log("Your sign:" +sign.toLocaleLowerCase());
+            mySelection = sign;
+            compSelection = compPlay();
+
+            if (mySelection === "rock" && compSelection === "scissors" || 
+            mySelection === "paper" && compSelection === "rock" ||
+            mySelection === "scissors" && compSelection === "paper") {
+                return("You win!");
+            }
+            else if (mySelection === "scissors" && compSelection === "rock" || 
+            mySelection === "rock" && compSelection === "paper" ||
+            mySelection === "paper" && compSelection === "scissors") {
+                return("You lose!");
+            }
+            else { return("Draw!"); }
+
+        }
+
+        function game() {
+            
+            let user_score =0, comp_score = 0;
+            for (let i=0; i<5; i++) {
+                let score = round();
+                console.log(score);
+
+                if (score === "You win!") {
+                    user_score++;
+                    
+                }
+                else if (score === "You lose!") {
+                    comp_score++;
+                }
+                else if (score === "Draw!") {
+                    user_score++;
+                    comp_score++;
+                }
+                console.log("User score:"+user_score," Computer score:"+ comp_score)
+            }
+        }
+        game();
+
+
+
+
+    </script>
+    
+</body>
+</html>
